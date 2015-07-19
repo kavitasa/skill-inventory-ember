@@ -1,3 +1,41 @@
-<h2 id="title">Welcome to Ember.js</h2>
 
-{{outlet}}
+<header class="mod-header">
+<div class="layout-wrap">
+  <h1>
+    <a href="http://turing.io">Turing School of Software & Design</a>
+  </h1>
+  <nav>
+    <ul>
+      <li>
+        {{#if session.currentUser}}
+          Welcome, {{session.currentUser.username}}
+        {{else}}
+          {{#if session.isWorking}}
+          Signing you in...
+          {{else}}
+        {{error}}
+          <button {{action 'signInViaGithub'}} class="btn btn-primary pull-right">
+            Login with Github
+          </button>
+          {{/if}}
+        {{/if}}
+      </li>
+      <li></li>
+      <li></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="mod-outline">
+  <div class="layout-inner-wrap">
+
+    <div class="col-article">
+
+      {{outlet}}
+    </div>
+  </div>
+</div>
+
+<footer class="mod-footer">
+  <p>© Copyright 2014 Turing School of Software &amp; Design, All rights reserved</p>
+</footer>
